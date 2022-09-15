@@ -5,6 +5,7 @@ const router = express.Router();
 const {
   getAllShells,
   addShell,
+  getShell,
   updateShell,
   deleteShell
 } = require('../controller/Shell');
@@ -15,6 +16,8 @@ module.exports = () => {
   router.get('/', getAllShells);
 
   router.post('/', addShell);
+
+  router.get('/:id', getShell);
 
   router.put('/:id', updateShell);
 

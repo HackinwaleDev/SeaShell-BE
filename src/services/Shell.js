@@ -23,6 +23,22 @@ class ShellService {
   }
 
   /**
+   * Method to RETRIEVE a Shell from the collection
+   * @param { string } shellId - ID of the Shell to retrieve
+   * @returns { Promise<{}> }
+   */
+  static async getShell(shellId) {
+    try {
+      const data = await Shell.findById(shellId);
+
+      return data;
+
+    } catch (e) {
+      return e.message;
+    }
+  }
+
+  /**
    * Method to ADD new shell
    * @param { Object } shellObj - Should contain the `name`, `specie` and `description`
    * @returns { Promise<> }

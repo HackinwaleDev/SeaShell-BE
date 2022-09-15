@@ -7,6 +7,15 @@ exports.getAllShells = async (req, res) => {
   res.status(200).send(response);
 }
 
+exports.getShell = async (req, res) => {
+  
+  const id = req.params.id;
+
+  const response = await Shell.getShell(id);
+
+  res.status(200).send(response);
+}
+
 exports.addShell = async (req, res) => {
 
   const payload = req.body;
