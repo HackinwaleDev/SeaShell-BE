@@ -9,6 +9,7 @@ var app = require('../app')(config);
 var debug = require('debug')('seashell:server');
 var http = require('http');
 var createError = require('http-errors');
+const mongoose = require('mongoose');
 var routeHandler = require('../routes');
 
 /**
@@ -31,6 +32,18 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+/**
+ * Connect to MongoDB database
+ */
+const db = config.mongodb;
+mongoose.connect(db.connStr, db.options, null)
+  .then(() => {
+    console.log("Successfully connected to Database");
+  })
+  .catch((error) => {
+    console.log(error.message);
+  })
 
 /**
  * Setup application routes grouped together 
@@ -110,5 +123,6 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  // debug('Listening on ' + bind);
+  console.log('Listening on ' + bind);
 }

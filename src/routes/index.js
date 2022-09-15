@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-const user = require('../routes/users');
+const test = require('./test');
 const shell = require('../routes/shells');
 
 module.exports = () => {
 
-  router.use('/', user());
+  router.use('/', test());
   router.use('/shells', shell());
 
   return router;

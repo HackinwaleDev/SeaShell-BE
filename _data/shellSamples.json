@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Shell 1",
+    "specie": "jellyshell",
+    "description": "something jelly and it is on the periodt"
+  },
+  {
+    "name": "Shell 2",
+    "specie": "sushishell",
+    "description": "something shushi and it is on the periodt"
+  },
+  {
+    "name": "Shell 3",
+    "specie": "panlashell",
+    "description": "something panla and it is on the periodt"
+  }
+]
